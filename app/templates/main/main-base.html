@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import show_debt with context %}
+
+{% block sideMenu %}
+    <div class="side-link main-link"> <a href="{{url_for('main.main_route')}}"> Main </a></div>
+    <div class="side-link"> <a href="{{url_for('main.confirm', page=0)}}">Confirm</a> </div>
+    <div class="side-link"> <a href="{{url_for('main.create')}}">Give</a> </div>
+    <div class="side-link"> <a href="{{url_for('main.take')}}">Take</a> </div>
+    <div class="side-link"> <a href="{{url_for('main.lended', page=0)}}">Given</a> </div>
+    <div class="side-link"> <a href="{{url_for('main.borrowed', page=0)}}">Taken</a> </div>
+{% endblock %}

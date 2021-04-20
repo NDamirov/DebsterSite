@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import show_field %}
+
+{% block content %}
+    <div style="width: 100%;">
+        Check your email for confirmation token.
+    </div>
+    <form action="{{url_for('auth.confirm')}}" method="POST">
+        <div>
+            {{show_field('token', confirmForm.token)}}
+        </div>
+
+        <div>
+            confirm : {{confirmForm.confirm}}
+        </div>
+    </form>
+{% endblock %}

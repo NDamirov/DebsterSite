@@ -1,0 +1,13 @@
+{% extends 'vaults/base.html' %}
+
+{% block content %}
+    <div class="main-vaults">
+        {% for subscription in vaults %}
+            <div class="vault-row">
+                <span>{{subscription.vault.name}}</span>
+                <a href="{{url_for('vaults.confirm', id=subscription.id)}}">Confirm</a>
+                <a href="{{url_for('vaults.reject', id=subscription.id)}}">Reject</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+    <title>Debster</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style/style.css' )}}?3">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/about.css' )}}?2">
+    {% block styles %}{% endblock %}
+    <style>
+      @font-face{
+          font-family: "Montserrat";
+          src: url("{{url_for('static', filename='fonts/Montserrat/Montserrat-Light.ttf')}}") format("truetype");
+      }
+      
+      @font-face{
+          font-family: "Montserrat Bold";
+          src: url("{{url_for('static', filename='fonts/Montserrat/Montserrat-Bold.ttf')}}") format("truetype");
+      }
+
+      @font-face{
+          font-family: "Montserrat Thin";
+          src: url("{{url_for('static', filename='fonts/Montserrat/Montserrat-Light.ttf')}}") format("truetype");
+      }
+    </style>
+
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+  </head>
+  <body>
+    {% block navbar %}
+      <div class="navbar">
+        <a href="{{url_for('main.main_route')}}" class="icon">DEBSTER</a>
+        <a href="{{url_for('auth.main')}}"  class="navbar-link" id="logout-link">Start</a>
+      </div>
+
+      <div id="mobile-navbar" class="mobile-navbar">
+        <a href="{{url_for('main.main_route')}}" class="mobile-icon">DEBSTER</a>
+      </div>
+    {% endblock %}
+
+    <div class="main-wrapper">
+      <div id="cookie-div" style="text-align: center;">
+        <span>This site uses cookies 🍪.</span>
+        <button id="cookie-accept">Accept</button>
+      </div>
+
+      <div class="content">
+        {% block flashes %}
+          {% for message in get_flashed_messages() %}
+            <div class="flashed">
+              {{message}}
+            </div>
+          {% endfor %}
+        {% endblock %}
+        <div class="main">
+
+            <div class="block">
+              <div class="text">
+                <div class="header">Manage your debts</div>
+                <div class="description">
+                  Keep your debt history handy.
+                </div>
+              </div>
+              <div class="picture">
+                <img src="{{url_for('static', filename='/pictures/together.png')}}?1">
+              </div>
+            </div>
+
+            <div class="block">
+              <div class="text">
+                <div class="header">Control your savings</div>
+                <div class="description">
+                  Create vault with other users and control your total budget.
+                </div>
+              </div>
+              <div class="picture">
+                <img src="{{url_for('static', filename='/pictures/vault.png')}}?1">
+              </div>
+            </div>
+
+            <div class="block">
+              <div class="text">
+                <div class="header">Use Telegram</div>
+                <div class="description">
+                  Simple bot in <a href="https://t.me/DebsterBot">Telegram</a> to get notifications from your account.
+                </div>
+              </div>
+              <div class="picture" style="background-color: #dedede;">
+                <img src="{{url_for('static', filename='/pictures/telegram.png')}}?1">
+              </div>
+            </div>
+            
+            <h1>More coming soon</h1>
+
+        </div>
+      </div>
+      <div class="footer">
+        Debster © 2020
+      </div>
+    </div>
+
+    <script type="text/javascript" src="{{url_for('static', filename='script/script.js')}}?1"></script>
+    
+    
+
+  </body>
+</html>

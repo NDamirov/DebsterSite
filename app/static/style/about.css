@@ -1,0 +1,57 @@
+.block{
+    padding-right: 5%;
+    padding-left: 5%;
+    width: 90%;
+    height: 500px;
+    margin-bottom: 200px;
+}
+
+.text{
+    width: 40%;
+    float: left;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.picture{
+    width: 59%;
+    float: right;
+}
+
+.text, .picture{
+    height: 100%;
+}
+
+.picture img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.text .header{
+    font-family: "Montserrat Bold";
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.text .description{
+    color: #838383;
+    font-size: 20px;
+}
+
+@media (max-width: 750px){
+
+    .text{
+        margin-bottom: 20px;
+        padding-top: 0;
+    }
+    
+    .text, .picture{
+        width: 100%;
+        height: auto;
+    }
+
+    .block{
+        height: auto;
+        margin-bottom: 90px;
+    }
+}

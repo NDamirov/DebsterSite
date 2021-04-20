@@ -1,0 +1,143 @@
+{% macro show_field(name, field) %}
+    <div>
+        <span class="field-info">{{name}}:</span> {{field(placeholder=name)}}
+        
+    </div>
+    <div class="errors">
+        {% for error in field.errors %}
+            <div>{{error}}</div>
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+{% macro show_debt(debt) %}
+<div class="debt_row">
+    {% if debt.give_id == current_user.id %}
+        {% if debt.confirmed %}
+            {% if debt.refused %}
+                <div class="red-font material-icons">
+                    vertical_align_top
+                </div>
+            {% elif debt.paid %}
+                <div class="green-font material-icons">
+                    vertical_align_top
+                </div>
+            {% else %}
+                <div class="green-font material-icons">
+                    vertical_align_top
+                </div>
+                <a href="{{url_for('main.pay_debt', id=debt.id)}}" class="green-font material-icons">done</a>
+            {% endif %}
+        {% else %}
+            <div class="gray-font material-icons">
+                vertical_align_top
+            </div>
+        {% endif %}
+
+        {% if debt.paid %}
+            <span style="text-decoration: line-through;">{{debt.total}} - {{debt.ret.username}}</span>
+        {% else %}
+            <span>{{debt.total}} - {{debt.ret.username}}</span>
+        {% endif %}
+    {% else %}
+        {% if debt.confirmed %}
+            {% if debt.refused %}
+                <div class="red-font material-icons">
+                    vertical_align_bottom
+                </div>
+            {% else %}
+                <div class="green-font material-icons">
+                    vertical_align_bottom
+                </div>
+            {% endif %}
+        {% else %}
+            <a href="{{url_for('main.confirm_debt', id=debt.id)}}" class="give material-icons">
+                done
+            </a>
+            <a href="{{url_for('main.reject_debt', id=debt.id)}}" class="ret material-icons">
+                clear
+            </a>
+        {% endif %}
+
+        {% if debt.paid %}
+            <span style="text-decoration: line-through;">{{debt.total}} - {{debt.give.username}}</span>
+        {% else %}
+            <span>{{debt.total}} - {{debt.give.username}}</span>
+        {% endif %}
+
+    {% endif %}
+    {% if debt.about|length > 0 %}
+        <span style="float:right;" class="full-button" onclick="showDescription(this)">
+            <span class="material-icons">
+                keyboard_arrow_down
+            </span>
+        </span>
+    {% endif %}
+        <span style="float:right;">
+            {{debt.debt_since.strftime('%d.%m')}}
+        </span>
+        <div class="description hidden">
+            {{debt.about}}
+        </div>
+    </div>
+{% endmacro %}
+
+
+{% macro show_payment(payment) %}
+    <div class="debt_row">
+        {% if payment.refused %}
+            <div class="red-font material-icons">
+                {% if payment.amount > 0 %}
+                    vertical_align_bottom
+                {% else %}
+                    vertical_align_top
+                {% endif %}
+            </div>
+        {% elif payment.accepted %}
+            <div class="green-font material-icons">
+                {% if payment.amount > 0 %}
+                    vertical_align_bottom
+                {% else %}
+                    vertical_align_top
+                {% endif %}
+            </div>
+        {% elif payment.notConfirmedBy(current_user.id) %}
+            <a href="{{url_for('vault.confirm', paymentId=payment.id, vaultId=id)}}" class="give material-icons">
+                done
+            </a>
+            <a href="{{url_for('vault.reject', paymentId=payment.id, vaultId=id)}}" class="ret material-icons">
+                clear
+            </a>
+            <div class="gray-font material-icons">
+                {% if payment.amount > 0 %}
+                    vertical_align_bottom
+                {% else %}
+                    vertical_align_top
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="gray-font material-icons">
+                {% if payment.amount > 0 %}
+                    vertical_align_bottom
+                {% else %}
+                    vertical_align_top
+                {% endif %}
+            </div>
+        {% endif %}
+        <span>{{payment.amount|abs}} - {{payment.user.username}}</span>
+
+        {% if payment.about|length > 0 %}
+            <span style="float:right;" class="full-button" onclick="showDescription(this)">
+                <span class="material-icons">
+                    keyboard_arrow_down
+                </span>
+            </span>
+        {% endif %}
+            <span style="float:right;">
+                {{payment.payment_since.strftime('%d.%m')}}
+            </span>
+            <div class="description hidden">
+                {{payment.about}}
+            </div>
+    </div>
+{% endmacro %}

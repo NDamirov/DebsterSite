@@ -1,0 +1,11 @@
+{% extends 'vaults/base.html' %}
+
+{% block content %}
+    <div class="main-vaults">
+        {% for subscription in vaults %}
+            <div class="vault-row">
+                <a href="{{url_for('vault.showVault', id=subscription.vault.id, page=0)}}">{{subscription.vault.name}}</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

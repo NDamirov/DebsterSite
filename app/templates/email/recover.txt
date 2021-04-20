@@ -1,0 +1,4 @@
+Dear {{user.username}}
+Don't share this link!
+You password recovery link: {{url_for('auth.recover', token=token, _external=True)}}
+Debster

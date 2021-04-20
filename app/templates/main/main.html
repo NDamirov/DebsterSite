@@ -1,0 +1,42 @@
+{% extends 'main/main-base.html' %}
+{% block content %}
+        <div class="main-debts">
+            <div class="total_debt">
+                <span class="{% if totalDebt >= 0 %}give{% else %}ret{% endif %}">{{totalDebt}}₽</span>
+            </div>
+            <div class="not_confirmed_total">
+                <span class="mobile-hide">not confirmed: </span>{{notConfirmedTotalDebt}}₽
+            </div>
+        </div>
+        {% if debts|length == 0 %}
+            <div class="debt-row" style="text-align: center;">
+                <h1>Empty</h1>
+                <p>You have no active debts</p>
+            </div>
+        {% else %}
+            {% for debt in debts %}
+                <div class="debt_row">
+                    {% if debt[1] >= 0 %}
+                        <div class="green-font material-icons">
+                            vertical_align_top
+                        </div>
+                    {% else %}
+                        <div class="green-font material-icons">
+                            vertical_align_bottom
+                        </div>
+                    {% endif %}
+
+                    <span>{{debt[1]|abs}}₽ - {{debt[2]}}</span>
+
+                    <span style="float:right;" class="full-button" onclick="showDescription(this)">
+                        <span class="material-icons">
+                            keyboard_arrow_down
+                        </span>
+                    </span>
+                    <div class="description hidden">
+                        {{debt[3]}}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+{% endblock %}

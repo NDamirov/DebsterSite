@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block sideMenu %}
+    <div class="side-link main-link"> <a href="{{url_for('vaults.main')}}"> My vaults </a></div>
+    <div class="side-link"> <a href="{{url_for('vaults.invitations')}}"> Invitations </a></div>
+    <div class="side-link"> <a href="{{url_for('vaults.create')}}"> Create </a></div>
+{% endblock %}

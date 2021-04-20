@@ -1,0 +1,21 @@
+{% extends 'profile/base.html' %}
+{% from '_macros.html' import show_field %}
+
+{% block content %}
+    <div style="text-align: left;">
+        <div class="profile-element">Username: {{current_user.username}}</div>
+        <div class="profile-element">Email: {{current_user.email}}</div>
+        {% if current_user.isTelegram %} 
+            <div class="profile-element">Telegram: {{current_user.telegramNick}}
+                <a href="{{url_for('profile.stopTelegram')}}" class="ret">
+                    <span class="material-icons" style="font-size: 20px;">clear</span>
+                </a> 
+            </div>
+        {% else %}
+            <div class="profile-element">
+                <a href="https://t.me/DebsterBot">Connect Telegram</a>
+            </div>
+        {% endif %}
+        <a href="{{url_for('auth.logout')}}" class="rejected profile-element">Log out</a>
+    </div>
+{% endblock %}

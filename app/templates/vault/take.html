@@ -1,0 +1,20 @@
+{% extends 'vault/base.html' %}
+{% from '_macros.html' import show_field %}
+
+{% block content %}
+    <div class="form">
+        <form action="{{url_for('vault.take', id=id)}}" method="POST">
+                {{form.csrf_token}}
+            <div>
+                {{show_field('total', form.amount)}}
+            </div>
+
+            <div>
+                {{show_field('about', form.description)}}
+            </div>
+            <div class="submit">
+                {{form.submit}}
+            </div>
+        </form>
+    </div>
+{% endblock %}

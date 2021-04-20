@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+
+{% block sideMenu %}
+    <div class="side-link main-link"> <a href="{{url_for('vault.showVault', id=id, page=0)}}"> Vault </a></div>
+    <div class="side-link"> <a href="{{url_for('vault.history', id=id, page=0)}}"> History</a></div>
+    <div class="side-link"> <a href="{{url_for('vault.take', id=id)}}"> Take </a></div>
+    <div class="side-link"> <a href="{{url_for('vault.give', id=id)}}"> Give </a></div>
+    {% if isAdmin %}
+        <div class="side-link"> <a href="{{url_for('vault.invite', id=id)}}"> Invite </a></div>
+    {% endif %}
+{% endblock %}

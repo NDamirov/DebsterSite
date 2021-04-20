@@ -1,0 +1,5 @@
+Dear {{user.username}}
+
+Your confirmation link: {{token}}
+
+Debster

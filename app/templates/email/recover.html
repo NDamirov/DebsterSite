@@ -1,0 +1,7 @@
+<p>Dear {{user.username}}</p>
+
+<p style="color: red;">Don't share this link!</p>
+
+<p>To recover your password click <a href="{{url_for('auth.recover', token=token, _external=True)}}">here</a>.</p>
+
+<p>Debster</p>

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import show_field %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='style/auth.css' )}}">
+{% endblock %}
+
+{% block content %}
+    <div class="login-form">
+        <h3 class="description">Log in</h3>
+        <form action="{{url_for('auth.main')}}" method="POST">
+            {{ loginForm.hidden_tag() }}
+            <div>
+                {{show_field('email', loginForm.emailLog)}}
+            </div>
+            <div>
+                {{show_field('password', loginForm.password)}}
+            </div>
+            <div class="submit">
+                {{loginForm.log}}
+            </div>
+        </form>
+        <div style="text-align: center; color: black;">
+            <a href="{{url_for('auth.recovery')}}">Forgot password?</a>
+        </div>
+        <div style="text-align: center; color: black;">
+            <img src="{{url_for('static', filename='pictures/vk.png')}}" height='20px'>
+            <a href="{{url_for('auth.oauth_begin')}}">Continue with VK</a>
+        </div>
+    </div>
+    <div class="reg-form">
+        <h3 class="description">Register</h3>
+        <form action="{{url_for('auth.main')}}" method="POST">
+            {{ registerForm.hidden_tag() }}
+            <div>
+                {{show_field('email', registerForm.email)}}
+            </div>
+            <div>
+                {{show_field('username', registerForm.newUsername)}}
+            </div>
+            <div>
+                {{show_field('password', registerForm.password)}}
+            </div>
+            <div>
+                {{show_field('password copy', registerForm.passwordCopy)}}
+            </div>
+            <div>
+                {{registerForm.recaptcha}}
+            </div>
+            <div class="submit">
+                {{registerForm.register}}
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import show_debt with context %}
+
+{% block sideMenu %}
+    <div class="side-link main-link"> <a href="{{url_for('profile.main')}}"> My profile </a></div>
+    <div class="side-link"> <a href="{{url_for('profile.changeUsername')}}"> Change username </a> </div>
+    <div class="side-link"> <a href="{{url_for('profile.changePassword')}}"> Change password </a> </div>
+    <div class="side-link"> <a href="{{url_for('profile.helpWebsite')}}"> Help with website </a> </div>
+    <div class="side-link"> <a href="https://telegra.ph/Debster-in-Telegram-07-21"> Help with Telegram </a> </div>
+{% endblock %}

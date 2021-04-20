@@ -1,0 +1,26 @@
+{% extends 'main/main-base.html' %}
+{% from '_macros.html' import show_field %}
+
+{% block content %}
+    <div class="form">
+        <form action="{{url_for(request.endpoint)}}" method="POST">
+                {{form.csrf_token}}
+
+            <div>
+                {{show_field('name', form.debtTo)}}
+            </div>
+
+            <div>
+                {{show_field('total', form.total)}}
+            </div>
+
+            <div>
+                {{show_field('description', form.description)}}
+            </div>
+
+            <div class="submit">
+                {{form.create}}
+            </div>
+        </form>
+    </div>
+{% endblock %}

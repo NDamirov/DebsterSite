@@ -1,0 +1,23 @@
+{% extends '/vault/base.html' %}
+{% from '_macros.html' import show_payment with context %}
+
+{% block content %}
+    <div class="main-debts">
+        <div class="total_debt">
+            <span class="{% if total >= 0 %}give{% else %}ret{% endif %}">{{total}}₽</span>
+        </div>
+        <div class="not_confirmed_total">
+            <span class="mobile-hide">not confirmed: </span>{{notConfirmedTotal}}₽
+        </div>
+    </div>
+    {% if payments|length == 0 %}
+        <div class="debt-row" style="text-align: center;">
+            <h1>Empty</h1>
+            <p>No payments.</p>
+        </div>
+    {% else %}
+        {% for payment in payments %}
+            {{show_payment(payment)}}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

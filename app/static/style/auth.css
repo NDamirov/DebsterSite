@@ -1,0 +1,25 @@
+.login-form, .reg-form{
+    text-align: right;
+    margin: 10px 50px;
+    min-width: 350px;
+}
+
+.login-form div, .reg-form div{
+    margin: 10px 0;
+}
+
+.login-form .description, .reg-form .description{
+    text-align: center;
+}
+
+@media (max-width: 580px){
+    .login-form, .reg-form{
+        margin-left: 0;
+        margin-right: 0;
+        min-width: 0px;
+    }
+
+    .login-form{
+        border-bottom: 1px solid #dedede;  
+    }
+}

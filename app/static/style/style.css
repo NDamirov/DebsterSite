@@ -1,0 +1,486 @@
+body{
+    font-family: "Montserrat";
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+}
+
+a, a:hover{
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a{
+    color: #663366;
+}
+
+h1{
+    width: 100%;
+}
+
+.hidden{
+    display: none;
+}
+
+.full-button{
+    cursor: pointer;
+}
+
+/* NAVBAR STYLE BEGIN */
+#logout-link{
+    float: right;
+}
+
+
+.navbar-link, .side-link a, .main-link a{
+    color: gray;
+}
+
+.navbar-link:hover, .side-link a:hover, .main-link a:hover{
+    color: black;
+}
+
+
+.navbar a{
+    margin-left: 15px;
+    margin-right: 15px;
+    font-family: "Montserrat Bold";
+}
+
+.mobile-navbar{
+    font-family: "Montserrat Bold";
+    background-color: white;
+    text-align: center;
+    position: fixed;
+    top: 0px;
+
+    padding: 15px;
+    width: calc(100% - 30px);
+
+    z-index: 5;
+    border-bottom: 1px solid #dedede;
+    height: 25px;
+}
+
+.mobile-icon{
+    float: right;
+}
+
+.navbar{
+    width: calc(100% - 30px);
+    position: fixed;
+    top: 0px;
+
+    padding: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid #dedede;
+    background-color: white;
+    height: 25px;
+    z-index: 5;
+}
+
+.mobile-navbar{
+    display: none;
+}
+
+/* NAVBAR STYLE END */
+
+/* FOOTER STYLE BEGIN */
+
+.footer{
+    background-color: #dedede;
+    width: 105.55556%;
+    margin-left: -5.55555%;
+    height: 50px;
+    padding-left: 5.55555%;
+    padding-top: 15px;
+}
+
+/* FOOTER STYLE END */
+
+/* COOKIE NOTIFICATION STYLE BEGIN */
+#cookie-div{
+    display: none;
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    background-color: #F7F7F7;
+}
+
+#cookie-div.show{
+    display: block;
+}
+/* COOKIE NOTIFICATION STYLE END */
+
+/* SIDEBAR STYLE BEGIN */
+
+.side-menu{
+    padding-right: 20px;
+    border-right: 1px solid #dedede;
+    float: left;
+}
+
+.side-link{
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.main-link{
+    font-family: "Montserrat Bold";
+}
+
+
+/* SIDEBAR STYLE END */
+
+/* NAVIGATION STYLE BEGIN */
+
+.navigation .material-icons{
+    font-size: 40px;
+}
+
+/* NAVIGATION STYLE END */
+
+.main{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 20px;
+}
+
+.main-wrapper{
+    position: absolute;
+    margin-top: 70px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.total_debt{
+    font-size: 5rem;
+    width: inherit;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.not_confirmed_total{
+    font-size: 3.5rem;
+    width: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    color: #342b38;
+}
+
+.main-debts{
+    margin-bottom: 100px;
+    display: block;
+    width: 100%;
+}
+
+.give{
+    color: #4FA646;
+}
+
+.ret{
+    color: #fb3569;
+}
+
+div.give{
+    text-align: left;
+}
+
+div.ret{
+    text-align: right;
+}
+
+.debt_row{
+    flex-shrink: 0;
+    font-size: 29px;
+    width: 100%;
+    border-bottom: 1px solid #dedede;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.debts-wrapper{
+    width: 100%;
+}
+
+.content{
+    text-align: center;
+    width: 100%;
+}
+
+.flashed{
+    color: #fb3569;
+    text-align: center;
+}
+
+.confirmed, .rejected, .unconfirmed, .paid{
+    text-align: left;
+}
+
+.confirmed, .paid{
+    color: #4FA646;
+}
+
+.rejected{
+    color: #fb3569;
+}
+
+.unconfirmed{
+    color: #ABABAB;
+}
+
+.paid{
+    text-decoration: line-through;
+}
+
+/* COLORS */
+
+.green{
+    background-color: #4FA646;
+}
+
+.red{
+    background-color: #fb3569;
+}
+
+.gray{
+    background-color: #ABABAB;
+}
+
+.green-font{
+    color: #4FA646;
+}
+
+.red-font{
+    color: #fb3569;
+}
+
+.gray-font{
+    color: #ABABAB;
+}
+/* ENDCOLORS */
+
+.state{
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+}
+
+/* VAULT STYLE BEGIN */
+
+.main-vaults{
+    margin-bottom: 100px;
+    display: block;
+    width: 100%;
+}
+
+.vault-row{
+    text-align: left;
+    font-size: 29px;
+}
+
+/* VAULT STYLE END */
+
+/* FORMS STYLE BEGIN */
+
+input, textarea, button{
+    -webkit-appearance: none;
+}
+
+input, textarea, button{
+    border: rgba(66, 33, 66, 0.3) 1px solid;
+    transition: border-color 0.3s;
+}
+
+input:hover, textarea:hover, button:hover{
+    border-color: #663366;
+}
+
+input:focus, textarea:focus, button:focus{
+    border-color: #663366;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+button, input[type="submit"]{
+    font-family: 'Montserrat Thin';
+}
+
+input[type="text"], input[type="password"], input[type="submit"], input[type="number"], textarea, button{
+    font-size: 20px;
+    padding: 5px;
+}
+
+input[type="text"], input[type="password"], textarea, input[type="number"]{
+    width: 270px;
+}
+
+input[type="submit"], button{
+    border-radius: 3px;
+    background-color: rgba(66, 33, 66, 0.7);
+    color: #dddddd;
+}
+
+
+input[type="submit"]:hover, button:hover, input[type="submit"]:active, button:active{
+    background-color: rgba(66, 33, 66, 0.8);
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.submit, button{
+    text-align: center;
+}
+
+.form{
+    text-align: right;
+}
+
+.form div{
+    margin: 10px 0;
+}
+
+.profile-element{
+    margin-bottom: 5px;
+}
+    
+
+/* ERRORS IN FORMS BEGIN */
+.errors{
+    font-size: 15px;
+    color: #fb3569;
+    text-align: right;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.errors div{
+    display: inline-block;
+    text-align: left;
+    width: 270px;
+}
+
+.form{
+    text-align: right;
+}
+
+/* ERRORS IN FORMS END */
+
+/* FORMS STYLE END */
+
+@media (max-width: 700px){
+    .navbar{
+        bottom: 0px;
+        top: initial;
+        border-bottom: initial;
+        border-top: 1px solid #dedede;
+    }
+
+    .main-wrapper{
+        margin-top: 66px;
+        padding-bottom: 56px;
+    }
+
+    .icon{
+        display: none;
+    }
+
+    input[type="text"], input[type="password"], textarea, input[type="number"]{
+        width: 100%;
+    }
+
+    .errors div{
+        width: 100%;
+    }
+
+    .field-info{
+        display: none;
+    }
+
+    .mobile-navbar{
+        display: block;
+    }
+
+    .mobile-hide{
+        display: none;
+    }
+
+    .main{
+        padding-left: 0;
+    }
+
+    .side-menu{
+        width: 90%;
+        background-color: white;
+
+        position: fixed;
+        top: 60px;
+
+        border-right: 0px;
+        border-bottom: 1px solid #dedede;
+        float: left;
+
+        padding-right: 0;
+        padding-top: 0;
+    }
+    
+    .side-link{
+        text-align: center;
+        margin-bottom: 10px; 
+    }
+
+    .debt_row{
+        font-size: 15px;
+        font-family: "Montserrat Bold";
+        vertical-align: middle;
+    }
+
+    .state{
+        height: 15px;
+    }
+
+
+    .ret.material-icons{
+        float: right;
+    }
+}
+
+
+@media (min-width: 701px){
+    ::-webkit-input-placeholder {
+        color: transparent;
+   }
+    :-moz-placeholder {
+        color: transparent;
+   }
+    ::-moz-placeholder {
+        color: transparent;
+   }
+    :-ms-input-placeholder {
+        color: transparent;
+   }
+    input::placeholder {
+        color: transparent;
+   }
+    textarea::-webkit-input-placeholder {
+        color: transparent;
+   }
+    textarea:-moz-placeholder {
+        color: transparent;
+   }
+    textarea::-moz-placeholder {
+        color: transparent;
+   }
+    textarea:-ms-input-placeholder {
+        color: transparent;
+   }
+    textarea::placeholder {
+        color: transparent;
+   }
+
+   .mobile-navbar{
+       height: 0px;
+   }
+}
+
